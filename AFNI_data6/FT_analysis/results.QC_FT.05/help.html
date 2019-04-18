@@ -1,0 +1,173 @@
+
+    <html>
+    
+    <head>
+    <link rel="stylesheet" type="text/css" href="extra_info/styles.css" />
+    
+    </head>
+    
+    <body>
+    
+</div>
+
+<div class="div_pad_class">
+
+<hr class="hr_sec" />
+<div  style="padding-top: 0px; margin-top: -0px;"><pre   class='padtop'  ><center><b>HELP FILE FOR AP-QC</b></center></pre></div>
+<div  style="padding-top: 0px; margin-top: -0px;"  class='container'  ><pre><b>afni_proc.py's single subject QC report form</b></pre></div>
+</div>
+
+<div class="div_pad_class">
+
+<hr class="hr_sec" />
+<div  style="padding-top: 0px; margin-top: -0px;"><pre   class='padtop'  ><center><b>OVERVIEW</b></center></pre></div>
+<div  style="padding-top: 0px; margin-top: -0px;"  class='container'  ><pre><b>QC organization
+    The quality control (QC) is organized into thematic blocks to
+    check, such as original data acquisition, different alignments,
+    motion, regression modeling, and more. At the top of the QC page,
+    there is a navigation bar with a label for each QC block (vorig,
+    ve2a, etc.) that functions as a button to the top of that section.
+
+Rating
+    Beneath each section label is a(n initially empty) QC button,
+    which users can click to set a rating for that QC block and for
+    the overall subject rating ("FINAL"). Clicking on the QC button
+    toggles its state through good (+), bad (X) or other (?, which may
+    include 'ugly', or just a hint to revisit later).  Users can also
+    use convenient 'filler buttons' at the right (A+, Ax, etc.), when
+    the ratings are constant/uniform-- one hopes for 'all good'
+    processing, but who knows...
+
+Commenting
+    Additionally, users can ctrl+click on the QC button to enter a
+    comment for that block.  For example, they can write why a rating
+    was good or bad, or what question they have led them to rate it as
+    'other'.
+
+Saving
+    Clicking SAVE will let the user save the QC ratings+comments on
+    their computer for later use, such as inclusion/exclusion criteria
+    for the subject in group analysis.  (NB: This action is treated
+    the same as downloading a file from online, and is subject to
+    standard limitations on simplicity due to browser security
+    settings.)</b></pre></div>
+</div>
+
+<div class="div_pad_class">
+
+<hr class="hr_sec" />
+<div  style="padding-top: 0px; margin-top: -0px;"><pre   class='padtop'  ><center><b>DEFINITIONS</b></center></pre></div>
+<div  style="padding-top: 0px; margin-top: -0px;"  class='container'  ><pre><b>QC block 
+    One thematic section of the QC form (original data, alignment
+    step, etc.).  Each block has a label in the navigation bar (vorig,
+    ve2a, etc.)-- click on the label to jump to that block. Click on
+    the button below the label to provide a rating for that block.
+
+QC button
+    Below each QC block label in the navigation bar is a button
+    (initially empty after running afni_proc.py). The user can click
+    on it to toggle its state to one of three ratings (good, +; bad,
+    X; other, ?), as well as to enter a comment for that QC block (via
+    ctrl+click).
+
+'FINAL' 
+    Label for the QC button to hold the user's overall/final
+    evaluation of the subject's data and processing. (Clicking on this
+    label does nothing.)
+
+filler button 
+    |A+|, |Ax|, |A?|-- located in the upper right corner of the
+    navigation menu.  These can be used to provide uniform ratings
+    across the QC buttons (click to fill empty buttons, double-click
+    to fill *all* buttons, regardless of state).  
+    |clr|-- double-clicking on this will empty all ratings+comments
+    from the QC buttons.
+
+'SAVE'
+    Write the ratings+comments to disk.  This action is done through
+    the browser, and is subject to the browser settings; probably
+    users should not have the browser set to automatically download
+    all files to the same location, for example.
+
+'HELP'
+    Button : well, how did you get here??
+
+'BC', 'AC'
+    When using the 'pythonic' HTML style, 1D-plotting (like motion
+    enorm plots) also produces boxplots to summarize values.  When
+    censoring has been applied, by default there will be two boxplots
+    made: one of values 'before censoring' (BC), and one of values
+    'after censoring' (AC).  Those labels are affixed in order to the
+    titles of the boxplots.
+
+</b></pre></div>
+</div>
+
+<div class="div_pad_class">
+
+<hr class="hr_sec" />
+<div  style="padding-top: 0px; margin-top: -0px;"><pre   class='padtop'  ><center><b>SET BUTTON RATING</b></center></pre></div>
+<div  style="padding-top: 0px; margin-top: -0px;"  class='container'  ><pre><b>
+To record an evaluation, click the button below any section label, and
+toggle through:
+    + : good,
+    X : bad,
+    ? : other (or 'revisit').
+
+For speed, you can click 'filler button' |A+| once to fill all *empty*
+buttons with +, or doubly to fill *all* buttons with +.  |Ax| behaves
+the same for X, and |A?| for ?.
+
+Double-click |clr| to clear all rating and comment values.
+
+Pro-tip: if data are mostly all in a single state like good or bad,
+just use filler buttons to save yourself click time, and then just
+click any individual buttons that are different.  </b></pre></div>
+</div>
+
+<div class="div_pad_class">
+
+<hr class="hr_sec" />
+<div  style="padding-top: 0px; margin-top: -0px;"><pre   class='padtop'  ><center><b>COMMENT</b></center></pre></div>
+<div  style="padding-top: 0px; margin-top: -0px;"  class='container'  ><pre><b>
+Use ctrl+click on a QC button to open (or close) a comment window.  
+
+Save a comment with the green (left) button, or hit Enter at any point.
+Remove a comment with the pink (right) button, or hit Esc at any point.
+
+Any QC button with a comment gets a pair of quotes added, like ''+''.
+Comments are independent of rating, but adding a comment to an empty
+button changes its rating to ''?'' (which can be altered further from
+there).
+</b></pre></div>
+</div>
+
+<div class="div_pad_class">
+
+<hr class="hr_sec" />
+<div  style="padding-top: 0px; margin-top: -0px;"><pre   class='padtop'  ><center><b>SAVE FORM</b></center></pre></div>
+<div  style="padding-top: 0px; margin-top: -0px;"  class='container'  ><pre><b>Click on the 'SAVE' button.  
+
+Unfortunately, the file will not be directly saved by this, due to
+security settings on most web-browsers, and the user will be prompted
+to save the file as if downloading from the Web.</b></pre></div>
+</div>
+
+<div class="div_pad_class">
+
+<hr class="hr_sec" />
+<div  style="padding-top: 0px; margin-top: -0px;"><pre   class='padtop'  ><center><b>KEYBOARD NAVIGATION</b></center></pre></div>
+<div  style="padding-top: 0px; margin-top: -0px;"  class='container'  ><pre><b>
+Use Tab to navigate the QC menu mirroring all above functionality.
+
+Hit Tab to move through the menu.  Hit Enter on a section label to
+scroll the page there.
+
+On QC buttons hit Enter to toggle through the rating list.  Use
+ctrl+Enter to open comments; as above, use Enter or Esc to keep or
+erase, respectively.
+
+On the filler buttons |A+|, |Ax| and |A?|, use Enter to fill empty
+QC buttons and ctrl+Enter to fill *all* buttons. 
+On |clr|, ctrl+Enter clears all rating and comment values.  
+</b></pre></div></body></html>

@@ -1,0 +1,33 @@
+
+# ------------------------------
+# note input dataset name
+if ( $#argv > 0 ) then
+   set inset = $argv[1]
+else
+   set inset = tuna.lh.niml.roi
+endif
+
+# ------------------------------
+# be sure input exists
+if ( ! -f $inset ) then
+   echo "** missing input dataset: $inset"
+   exit 1
+endif
+
+# ------------------------------
+# 1. convert to dataset
+# 2. map to volume
+
+ROI2dataset -prefix tuna.lh.niml.dset -input $inset
+
+3dSurf2Vol                      \
+   -spec std.141.FT_lh.spec     \
+   -surf_A smoothwm             \
+   -surf_B pial                 \
+   -sv FT_SurfVol.nii           \
+   -grid_parent FT_SurfVol.nii  \
+   -map_func mode               \
+   -f_steps 12                  \
+   -sdata tuna.lh.niml.dset     \
+   -prefix tuna.lh.s2v.roi
+
